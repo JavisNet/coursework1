@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Uchet
+namespace Uchet.Forms
 {
-    public partial class Form1 : Form
+    public partial class AuthForm : Form
     {
-        public Form1()
+        public AuthForm()
         {
             InitializeComponent();
         }
