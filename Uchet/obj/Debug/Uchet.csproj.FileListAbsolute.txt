@@ -1,0 +1,12 @@
+R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\bin\Debug\Uchet.exe.config
+R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\bin\Debug\Uchet.exe
+R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\bin\Debug\Uchet.pdb
+R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\obj\Debug\Uchet.csproj.AssemblyReference.cache
+R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\obj\Debug\Uchet.csproj.SuggestedBindingRedirects.cache
+R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\obj\Debug\Uchet.Forms.AuthForm.resources
+R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\obj\Debug\Uchet.Properties.Resources.resources
+R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\obj\Debug\Uchet.csproj.GenerateResource.cache
+R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\obj\Debug\Uchet.csproj.CoreCompileInputs.cache
+R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\obj\Debug\Uchet.exe
+R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\obj\Debug\Uchet.pdb
+R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\obj\Debug\Uchet.Forms.RegForm.resources
