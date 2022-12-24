@@ -13,6 +13,7 @@ namespace Uchet.Forms
 {
     public partial class AuthForm : Form
     {
+        string surnamestr, namestr, patronimycstr;
         public AuthForm()
         {
             InitializeComponent();
@@ -34,7 +35,24 @@ namespace Uchet.Forms
                 t_password.UseSystemPasswordChar = true;
             }
         }
-
+        private void Namer()
+        {
+            var loginUser = t_login.Text;
+            var passwordUser = t_password.Text;
+            string select = $"select id_staff,surname,name,patronymic,Login,Password from staff_tb where Login = '{loginUser}' and Password = '{passwordUser}'";
+            using (SqlConnection connect = new SqlConnection(Class.DataBase.connStr))
+            {
+                connect.Open();
+                SqlCommand command = new SqlCommand(select, connect);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    surnamestr = reader[1].ToString();
+                    namestr = reader[2].ToString();
+                    patronimycstr = reader[3].ToString();
+                }
+            }
+        }
         private void b_register_MouseClick(object sender, MouseEventArgs e)
         {
             Forms.RegForm reg = new Forms.RegForm();
@@ -42,6 +60,7 @@ namespace Uchet.Forms
         }
         private void b_open_MouseClick(object sender, MouseEventArgs e)
         {
+            Namer();
             var loginUser = t_login.Text;
             var passwordUser = t_password.Text;
 
@@ -57,7 +76,7 @@ namespace Uchet.Forms
                 adapter.Fill(table);
                 if (table.Rows.Count == 1)
                 {
-                    MessageBox.Show("Вы успешно вошли!","Вход выполнен",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Вы успешно вошли!",$"Вход выполнен {surnamestr} {namestr} {patronimycstr}",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     Forms.MainForm open = new Forms.MainForm();
                     open.Show();this.Hide();
                 }
