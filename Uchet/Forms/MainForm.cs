@@ -14,6 +14,7 @@ namespace Uchet.Forms
     public partial class MainForm : Form
     {
         int Product_Id;string Product_Name;string Product_Value;string Product_Count;
+        int warehouseint; string customerstr;
         public MainForm()
         {
             InitializeComponent();
@@ -139,10 +140,11 @@ namespace Uchet.Forms
             DGVOrder.Columns[1].HeaderText = "Номер склада";
             DGVOrder.Columns[2].HeaderText = "Название заказа";
             DGVOrder.Columns[3].HeaderText = "Дата отправления";
-            DGVOrder.Columns[4].HeaderText = "Количество";
-            DGVOrder.Columns[5].HeaderText = "Стоимость";
-            DGVOrder.Columns[6].HeaderText = "Пометка на удаление";
-            DGVOrder.Columns[0].Visible = false; DGVOrder.Columns[6].Visible = false;
+            DGVOrder.Columns[4].HeaderText = "Заказчик";
+            DGVOrder.Columns[5].HeaderText = "Количество";
+            DGVOrder.Columns[6].HeaderText = "Стоимость за штуку";
+            DGVOrder.Columns[7].HeaderText = "Пометка на удаление";
+            DGVOrder.Columns[0].Visible = false; DGVOrder.Columns[7].Visible = false;
             DGVOrder.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGVOrder.AllowUserToAddRows = false;
 
@@ -184,6 +186,28 @@ namespace Uchet.Forms
                 {
                     MessageBox.Show("Запись не была добавлена.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void customerfind()
+        {
+            try
+            {
+                customerstr = DGVCustomer.CurrentRow.Cells[2].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void warehousefind()
+        {
+            try
+            {
+                warehouseint = (int)DGVhouse.CurrentRow.Cells[1].Value;
             }
             catch (Exception ex)
             {
@@ -241,7 +265,7 @@ namespace Uchet.Forms
 
         private void DGVProduct_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Producfind();
+            Producfind(); delivery.Text = Product_Name.ToString();
         }
 
         private void DGVProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -291,6 +315,16 @@ namespace Uchet.Forms
             {
                 MessageBox.Show("Выберите запись!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void DGVhouse_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            warehousefind(); warehouse.Text = "№" + warehouseint.ToString();
+        }
+
+        private void DGVCustomer_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            customerfind(); customer.Text = customerstr.ToString();
         }
     }
     } 

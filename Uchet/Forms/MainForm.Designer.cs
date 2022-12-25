@@ -60,6 +60,18 @@
             this.ProductDel = new System.Windows.Forms.PictureBox();
             this.ProductEdit = new System.Windows.Forms.PictureBox();
             this.ProductAdd = new System.Windows.Forms.PictureBox();
+            this.warehouse = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.customer = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.delivery = new System.Windows.Forms.TextBox();
+            this.date = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.count = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVhouse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCustomer)).BeginInit();
@@ -72,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ProductDel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -116,6 +129,7 @@
             this.DGVhouse.Name = "DGVhouse";
             this.DGVhouse.Size = new System.Drawing.Size(269, 145);
             this.DGVhouse.TabIndex = 9;
+            this.DGVhouse.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVhouse_CellMouseClick);
             // 
             // label4
             // 
@@ -188,6 +202,7 @@
             this.DGVCustomer.Name = "DGVCustomer";
             this.DGVCustomer.Size = new System.Drawing.Size(274, 145);
             this.DGVCustomer.TabIndex = 16;
+            this.DGVCustomer.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVCustomer_CellMouseClick);
             // 
             // DGVOrder
             // 
@@ -411,6 +426,127 @@
             this.ProductAdd.TabStop = false;
             this.ProductAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ProductAdd_MouseClick);
             // 
+            // warehouse
+            // 
+            this.warehouse.Enabled = false;
+            this.warehouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.warehouse.Location = new System.Drawing.Point(430, 336);
+            this.warehouse.Margin = new System.Windows.Forms.Padding(2);
+            this.warehouse.Name = "warehouse";
+            this.warehouse.Size = new System.Drawing.Size(133, 26);
+            this.warehouse.TabIndex = 41;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.Location = new System.Drawing.Point(430, 311);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(99, 23);
+            this.label12.TabIndex = 42;
+            this.label12.Text = "Хранилище";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label13.Location = new System.Drawing.Point(430, 482);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(78, 23);
+            this.label13.TabIndex = 44;
+            this.label13.Text = "Заказчик";
+            // 
+            // customer
+            // 
+            this.customer.Enabled = false;
+            this.customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.customer.Location = new System.Drawing.Point(430, 507);
+            this.customer.Margin = new System.Windows.Forms.Padding(2);
+            this.customer.Name = "customer";
+            this.customer.Size = new System.Drawing.Size(133, 26);
+            this.customer.TabIndex = 43;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label14.Location = new System.Drawing.Point(430, 365);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(51, 23);
+            this.label14.TabIndex = 46;
+            this.label14.Text = "Заказ";
+            // 
+            // delivery
+            // 
+            this.delivery.Enabled = false;
+            this.delivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.delivery.Location = new System.Drawing.Point(430, 390);
+            this.delivery.Margin = new System.Windows.Forms.Padding(2);
+            this.delivery.Name = "delivery";
+            this.delivery.Size = new System.Drawing.Size(133, 26);
+            this.delivery.TabIndex = 45;
+            // 
+            // date
+            // 
+            this.date.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.date.Location = new System.Drawing.Point(431, 455);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(132, 24);
+            this.date.TabIndex = 47;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label15.Location = new System.Drawing.Point(427, 426);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(148, 23);
+            this.label15.TabIndex = 48;
+            this.label15.Text = "Дата отправления";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label16.Location = new System.Drawing.Point(430, 606);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(92, 23);
+            this.label16.TabIndex = 52;
+            this.label16.Text = "Стоимость";
+            // 
+            // count
+            // 
+            this.count.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.count.Location = new System.Drawing.Point(434, 631);
+            this.count.Margin = new System.Windows.Forms.Padding(2);
+            this.count.Name = "count";
+            this.count.Size = new System.Drawing.Size(122, 26);
+            this.count.TabIndex = 51;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.Location = new System.Drawing.Point(430, 540);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(99, 23);
+            this.label17.TabIndex = 50;
+            this.label17.Text = "Количество";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numericUpDown1.Location = new System.Drawing.Point(434, 566);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(127, 30);
+            this.numericUpDown1.TabIndex = 53;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +554,18 @@
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1000, 684);
             this.ControlBox = false;
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.count);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.date);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.delivery);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.customer);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.warehouse);
             this.Controls.Add(this.orderReport);
             this.Controls.Add(this.orderDel);
             this.Controls.Add(this.orderEdit);
@@ -465,6 +613,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ProductDel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,5 +653,17 @@
         private System.Windows.Forms.PictureBox orderEdit;
         private System.Windows.Forms.PictureBox orderAdd;
         private System.Windows.Forms.PictureBox orderReport;
+        private System.Windows.Forms.TextBox warehouse;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox customer;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox delivery;
+        private System.Windows.Forms.DateTimePicker date;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox count;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
