@@ -53,7 +53,7 @@
             this.b_back.Cursor = System.Windows.Forms.Cursors.Hand;
             this.b_back.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.b_back.Location = new System.Drawing.Point(-2, 384);
-            this.b_back.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.b_back.Margin = new System.Windows.Forms.Padding(4);
             this.b_back.Name = "b_back";
             this.b_back.Size = new System.Drawing.Size(100, 41);
             this.b_back.TabIndex = 0;
@@ -67,7 +67,7 @@
             this.b_exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.b_exit.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.b_exit.Location = new System.Drawing.Point(457, 384);
-            this.b_exit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.b_exit.Margin = new System.Windows.Forms.Padding(4);
             this.b_exit.Name = "b_exit";
             this.b_exit.Size = new System.Drawing.Size(100, 41);
             this.b_exit.TabIndex = 1;
@@ -82,7 +82,7 @@
             this.l_reg.Location = new System.Drawing.Point(191, 52);
             this.l_reg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_reg.Name = "l_reg";
-            this.l_reg.Size = new System.Drawing.Size(138, 29);
+            this.l_reg.Size = new System.Drawing.Size(179, 38);
             this.l_reg.TabIndex = 9;
             this.l_reg.Text = "Регистрация";
             // 
@@ -104,7 +104,7 @@
             this.l_logo.Location = new System.Drawing.Point(64, 12);
             this.l_logo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.l_logo.Name = "l_logo";
-            this.l_logo.Size = new System.Drawing.Size(358, 21);
+            this.l_logo.Size = new System.Drawing.Size(497, 27);
             this.l_logo.TabIndex = 5;
             this.l_logo.Text = "ООО \"Алтайская продовольственная компания\"";
             // 
@@ -114,7 +114,7 @@
             this.l_login.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.l_login.Location = new System.Drawing.Point(261, 102);
             this.l_login.Name = "l_login";
-            this.l_login.Size = new System.Drawing.Size(58, 23);
+            this.l_login.Size = new System.Drawing.Size(72, 28);
             this.l_login.TabIndex = 10;
             this.l_login.Text = "Логин";
             // 
@@ -124,7 +124,7 @@
             this.l_password.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.l_password.Location = new System.Drawing.Point(260, 159);
             this.l_password.Name = "l_password";
-            this.l_password.Size = new System.Drawing.Size(69, 23);
+            this.l_password.Size = new System.Drawing.Size(86, 28);
             this.l_password.TabIndex = 11;
             this.l_password.Text = "Пароль";
             // 
@@ -132,9 +132,9 @@
             // 
             this.name.AutoSize = true;
             this.name.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.name.Location = new System.Drawing.Point(10, 98);
+            this.name.Location = new System.Drawing.Point(11, 169);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(42, 23);
+            this.name.Size = new System.Drawing.Size(52, 28);
             this.name.TabIndex = 12;
             this.name.Text = "Имя";
             // 
@@ -142,9 +142,9 @@
             // 
             this.surname.AutoSize = true;
             this.surname.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.surname.Location = new System.Drawing.Point(9, 159);
+            this.surname.Location = new System.Drawing.Point(12, 108);
             this.surname.Name = "surname";
-            this.surname.Size = new System.Drawing.Size(78, 23);
+            this.surname.Size = new System.Drawing.Size(99, 28);
             this.surname.TabIndex = 13;
             this.surname.Text = "Фамилия";
             // 
@@ -154,7 +154,7 @@
             this.patronymic.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.patronymic.Location = new System.Drawing.Point(10, 230);
             this.patronymic.Name = "patronymic";
-            this.patronymic.Size = new System.Drawing.Size(81, 23);
+            this.patronymic.Size = new System.Drawing.Size(100, 28);
             this.patronymic.TabIndex = 14;
             this.patronymic.Text = "Отчество";
             // 
@@ -164,7 +164,7 @@
             this.t_login.Location = new System.Drawing.Point(264, 129);
             this.t_login.Margin = new System.Windows.Forms.Padding(4);
             this.t_login.Name = "t_login";
-            this.t_login.Size = new System.Drawing.Size(100, 26);
+            this.t_login.Size = new System.Drawing.Size(100, 30);
             this.t_login.TabIndex = 15;
             // 
             // t_password
@@ -173,25 +173,25 @@
             this.t_password.Location = new System.Drawing.Point(264, 186);
             this.t_password.Margin = new System.Windows.Forms.Padding(4);
             this.t_password.Name = "t_password";
-            this.t_password.Size = new System.Drawing.Size(100, 26);
+            this.t_password.Size = new System.Drawing.Size(100, 30);
             this.t_password.TabIndex = 16;
             // 
             // t_name
             // 
             this.t_name.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.t_name.Location = new System.Drawing.Point(14, 125);
+            this.t_name.Location = new System.Drawing.Point(15, 196);
             this.t_name.Margin = new System.Windows.Forms.Padding(4);
             this.t_name.Name = "t_name";
-            this.t_name.Size = new System.Drawing.Size(100, 26);
+            this.t_name.Size = new System.Drawing.Size(135, 30);
             this.t_name.TabIndex = 17;
             // 
             // t_surname
             // 
             this.t_surname.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.t_surname.Location = new System.Drawing.Point(13, 186);
+            this.t_surname.Location = new System.Drawing.Point(16, 135);
             this.t_surname.Margin = new System.Windows.Forms.Padding(4);
             this.t_surname.Name = "t_surname";
-            this.t_surname.Size = new System.Drawing.Size(100, 26);
+            this.t_surname.Size = new System.Drawing.Size(134, 30);
             this.t_surname.TabIndex = 18;
             // 
             // t_patronymic
@@ -200,7 +200,7 @@
             this.t_patronymic.Location = new System.Drawing.Point(14, 257);
             this.t_patronymic.Margin = new System.Windows.Forms.Padding(4);
             this.t_patronymic.Name = "t_patronymic";
-            this.t_patronymic.Size = new System.Drawing.Size(100, 26);
+            this.t_patronymic.Size = new System.Drawing.Size(136, 30);
             this.t_patronymic.TabIndex = 19;
             // 
             // b_reg
@@ -240,7 +240,7 @@
             this.Controls.Add(this.b_exit);
             this.Controls.Add(this.b_back);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
