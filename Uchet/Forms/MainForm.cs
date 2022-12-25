@@ -13,8 +13,8 @@ namespace Uchet.Forms
 {
     public partial class MainForm : Form
     {
-        int Product_Id;string Product_Name;string Product_Value;string Product_Count;
-        int warehouseint; string customerstr;
+        int Product_Id; string Product_Name; string Product_Value; string Product_Count;
+        int warehouseint; string customerstr; string datestr; int Order_Id;
         public MainForm()
         {
             InitializeComponent();
@@ -90,7 +90,7 @@ namespace Uchet.Forms
             }
             catch { MessageBox.Show("Ошибка в заказах", "", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
-        private void DGVproductL()
+        private void DGVproductL() // Product
         {
             string sqlText4 = "select * from product_tb where del_product like 1";
             ShowTableproduct(sqlText4);
@@ -104,7 +104,7 @@ namespace Uchet.Forms
             DGVProduct.AllowUserToAddRows = false;
 
         }
-        private void DGVhouseL()
+        private void DGVhouseL() // Warehouse
         {
             string sqlText3 = "select * from warehouse_tb";
             ShowTablehouse(sqlText3);
@@ -118,7 +118,7 @@ namespace Uchet.Forms
             DGVhouse.AllowUserToAddRows = false;
 
         }
-        private void DGVcustomL()
+        private void DGVcustomL() // Customer
         {
             string sqlText2 = "select * from customer_tb";
             ShowTablecustom(sqlText2);
@@ -132,18 +132,18 @@ namespace Uchet.Forms
             DGVCustomer.AllowUserToAddRows = false;
 
         }
-        private void DGVorderL()
+        private void DGVorderL() // Order
         {
             string sqlText1 = "select * from order_tb where del_order like 1";
             ShowTableorder(sqlText1);
-            DGVOrder.Columns[0].HeaderText = "ID";
-            DGVOrder.Columns[1].HeaderText = "Номер склада";
-            DGVOrder.Columns[2].HeaderText = "Название заказа";
-            DGVOrder.Columns[3].HeaderText = "Дата отправления";
-            DGVOrder.Columns[4].HeaderText = "Заказчик";
-            DGVOrder.Columns[5].HeaderText = "Количество";
-            DGVOrder.Columns[6].HeaderText = "Стоимость за штуку";
-            DGVOrder.Columns[7].HeaderText = "Пометка на удаление";
+            DGVOrder.Columns[0].HeaderText = "ID"; DGVOrder.Columns[0].Width = 0;
+            DGVOrder.Columns[1].HeaderText = "Номер склада"; DGVOrder.Columns[1].Width = 60;
+            DGVOrder.Columns[2].HeaderText = "Название заказа"; DGVOrder.Columns[2].Width = 90;
+            DGVOrder.Columns[3].HeaderText = "Дата отправления"; DGVOrder.Columns[3].Width = 100;
+            DGVOrder.Columns[4].HeaderText = "Заказчик"; DGVOrder.Columns[4].Width = 100;
+            DGVOrder.Columns[5].HeaderText = "Количество"; DGVOrder.Columns[5].Width = 80;
+            DGVOrder.Columns[6].HeaderText = "Стоимость за штуку"; DGVOrder.Columns[6].Width = 120;
+            DGVOrder.Columns[7].HeaderText = "Пометка на удаление"; DGVOrder.Columns[7].Width = 0;
             DGVOrder.Columns[0].Visible = false; DGVOrder.Columns[7].Visible = false;
             DGVOrder.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DGVOrder.AllowUserToAddRows = false;
@@ -173,15 +173,16 @@ namespace Uchet.Forms
                 if (dialogResult == DialogResult.Yes)
                 {
                     string sqlText = "insert into product_tb(productname,Value,Cost) values('" + nameofproduct.Text + "','" + valueofproduct.Text + "','" + countofproduct.Text + "')";
-                using (SqlConnection con = new SqlConnection(Class.DataBase.connStr))
-                {
-                    con.Open();
-                    SqlCommand cmd1 = new SqlCommand(sqlText, con);
-                    int kol = cmd1.ExecuteNonQuery();
-                    MessageBox.Show("Запись добавлена", "Добавлено", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    con.Close();
-                    DGVproductL();
-                } }
+                    using (SqlConnection con = new SqlConnection(Class.DataBase.connStr))
+                    {
+                        con.Open();
+                        SqlCommand cmd1 = new SqlCommand(sqlText, con);
+                        int kol = cmd1.ExecuteNonQuery();
+                        MessageBox.Show("Запись добавлена", "Добавлено", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        con.Close();
+                        DGVproductL();
+                    }
+                }
                 else if (dialogResult == DialogResult.No)
                 {
                     MessageBox.Show("Запись не была добавлена.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -192,7 +193,7 @@ namespace Uchet.Forms
                 MessageBox.Show(ex.Message);
             }
         }
-        private void customerfind()
+        private void customerfind() // Customer
         {
             try
             {
@@ -203,7 +204,7 @@ namespace Uchet.Forms
                 MessageBox.Show(ex.Message);
             }
         }
-        private void warehousefind()
+        private void warehousefind() // Warehouse
         {
             try
             {
@@ -214,7 +215,7 @@ namespace Uchet.Forms
                 MessageBox.Show(ex.Message);
             }
         }
-        private void Producfind()
+        private void Producfind() // Product
         {
             try
             {
@@ -222,6 +223,23 @@ namespace Uchet.Forms
                 Product_Name = DGVProduct.CurrentRow.Cells[1].Value.ToString();
                 Product_Value = DGVProduct.CurrentRow.Cells[2].Value.ToString();
                 Product_Count = DGVProduct.CurrentRow.Cells[3].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void Orderfind() // Order
+        {
+            try
+            {
+                Order_Id = (int)DGVOrder.CurrentRow.Cells[0].Value;
+                warehouseint = (int)DGVOrder.CurrentRow.Cells[1].Value;
+                Product_Name = DGVOrder.CurrentRow.Cells[2].Value.ToString();
+                datestr = DGVOrder.CurrentRow.Cells[3].Value.ToString();
+                customerstr = DGVOrder.CurrentRow.Cells[4].Value.ToString();
+                Product_Value = DGVOrder.CurrentRow.Cells[5].Value.ToString();
+                Product_Count = DGVOrder.CurrentRow.Cells[6].Value.ToString();
             }
             catch (Exception ex)
             {
@@ -250,22 +268,23 @@ namespace Uchet.Forms
                     }
                     else if (dialogResult == DialogResult.No)
                     {
-                     MessageBox.Show("Запись не была изменена.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Запись не была изменена.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                } }
+                }
+            }
             else
             {
                 MessageBox.Show("Выберите запись!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            }
+        }
 
         private void DGVProduct_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Producfind(); delivery.Text = Product_Name.ToString();
+            Producfind(); delivery.Text = Product_Name.ToString(); count.Text = Product_Count.ToString(); value.Maximum = int.Parse(Product_Value.ToString());
         }
 
         private void DGVProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -319,12 +338,129 @@ namespace Uchet.Forms
 
         private void DGVhouse_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            warehousefind(); warehouse.Text = "№" + warehouseint.ToString();
+            warehousefind(); warehouse.Text = warehouseint.ToString();
         }
 
         private void DGVCustomer_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             customerfind(); customer.Text = customerstr.ToString();
         }
+
+        private void orderAdd_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Добавить запись?", "Добавление", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string sqlText = "insert into order_tb(warehouseInt,productname,departure_time,customer,Value,Cost) values('" + int.Parse(warehouseint.ToString()) + "','" + delivery.Text + "','" + date.Value + "','" + customer.Text + "','" + int.Parse(value.Value.ToString()) + "','" + int.Parse(count.Text.ToString()) + "')";
+                    using (SqlConnection con = new SqlConnection(Class.DataBase.connStr))
+                    {
+                        con.Open();
+                        SqlCommand cmd1 = new SqlCommand(sqlText, con);
+                        int kol = cmd1.ExecuteNonQuery();
+                        MessageBox.Show("Запись добавлена", "Добавлено", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        con.Close();
+                        DGVorderL();
+                    }
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    MessageBox.Show("Запись не была добавлена.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DGVOrder_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Orderfind();
+        }
+
+        private void DGVOrder_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Orderfind();
+            warehouse.Text = warehouseint.ToString();
+            delivery.Text = Product_Name.ToString();
+            date.Value = DateTime.Parse(datestr.ToString());
+            customer.Text = customerstr.ToString();
+            value.Value = Convert.ToDecimal(Product_Value.ToString());
+            count.Text = Product_Count.ToString();
+        }
+
+        private void orderEdit_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (Order_Id != 0)
+            {
+                try
+                {
+                    DialogResult dialogResult = MessageBox.Show("Изменить запись?", "Изменение", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        string sqlText = $"update order_tb set warehouseInt = {int.Parse(warehouse.Text.ToString())}, productname ='{delivery.Text.ToString()}', departure_time ='{DateTime.Parse(date.Value.ToString())}', customer ='{customer.Text.ToString()}', Value ={value.Value}, Cost ={count.Text.ToString()} where id_order like {Order_Id} and del_order like 1;";
+                        using (SqlConnection con = new SqlConnection(Class.DataBase.connStr))
+                        {
+                            con.Open();
+                            SqlCommand cmd1 = new SqlCommand(sqlText, con);
+                            int kol = cmd1.ExecuteNonQuery();
+                            MessageBox.Show("Запись изменена.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            con.Close();
+                            DGVorderL();
+                        }
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        MessageBox.Show("Запись не была изменена.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите запись!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void orderDel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (Order_Id != 0)
+            {
+                try
+                {
+                    DialogResult dialogResult = MessageBox.Show("Удалить запись?", "Удаление", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        string sqlText = $"update order_tb set del_order = 0 where id_order like {Order_Id}";
+                        using (SqlConnection con = new SqlConnection(Class.DataBase.connStr))
+                        {
+                            con.Open();
+                            SqlCommand cmd1 = new SqlCommand(sqlText, con);
+                            int kol = cmd1.ExecuteNonQuery();
+                            MessageBox.Show("Запись удалена.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            con.Close();
+                            DGVorderL();
+                        }
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        MessageBox.Show("Запись не была удалена.", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void orderReport_MouseClick(object sender, MouseEventArgs e)
+        {
+        }
     }
-    } 
+} 
