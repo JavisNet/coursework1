@@ -11,3 +11,4 @@ R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\obj\Debug\Uchet.exe
 R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\obj\Debug\Uchet.pdb
 R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\obj\Debug\Uchet.Forms.RegForm.resources
 R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\obj\Debug\Uchet.Forms.MainForm.resources
+R:\User\Desktop\Курсовая\Proga\Uchet\Uchet\obj\Debug\Uchet.csproj.ResolveComReference.cache

@@ -461,6 +461,29 @@ namespace Uchet.Forms
 
         private void orderReport_MouseClick(object sender, MouseEventArgs e)
         {
+            try
+            {
+                Microsoft.Office.Interop.Word.Application app = new Microsoft.Office.Interop.Word.Application();
+                string fileLoc = AppDomain.CurrentDomain.BaseDirectory;
+                var wDoc = app.Documents.Open(fileLoc + @"Order.docx"); ;
+                GenerateDoc(Order_Id.ToString(), "{Order_ID}", wDoc);
+                GenerateDoc(customerstr, "{customerstr}", wDoc);
+                GenerateDoc(Product_Name, "{Product_Name}", wDoc);
+                GenerateDoc(datestr, "{datestr}", wDoc);
+                GenerateDoc(Product_Value.ToString(), "{Product_Value}", wDoc);
+                GenerateDoc(Product_Count.ToString(), "{Product_Count}", wDoc);
+                app.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void GenerateDoc(string toPrint, string toFind, Microsoft.Office.Interop.Word.Document wDoc)
+        {
+            var range = wDoc.Content;
+            range.Find.ClearFormatting();
+            range.Find.Execute(FindText: toFind, ReplaceWith: toPrint);
         }
     }
 } 
